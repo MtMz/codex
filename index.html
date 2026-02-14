@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>今日のテレビ番組表</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1>今日のテレビ番組表</h1>
+          <p id="today-label" class="subtitle"></p>
+        </div>
+        <button id="refresh-button" class="refresh-button" type="button">番組を再取得</button>
+      </header>
+
+      <section class="filters" aria-label="番組フィルター">
+        <label for="date-filter">日付</label>
+        <input id="date-filter" type="date" />
+
+        <label for="channel-filter">チャンネル</label>
+        <select id="channel-filter">
+          <option value="all">すべて</option>
+        </select>
+      </section>
+
+      <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+
+      <section>
+        <table class="program-table" aria-label="テレビ番組表">
+          <thead>
+            <tr>
+              <th scope="col">時間</th>
+              <th scope="col">チャンネル</th>
+              <th scope="col">番組名</th>
+              <th scope="col">ジャンル</th>
+            </tr>
+          </thead>
+          <tbody id="program-body"></tbody>
+        </table>
+        <p id="empty-message" class="empty-message" hidden>条件に一致する番組がありません。</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
