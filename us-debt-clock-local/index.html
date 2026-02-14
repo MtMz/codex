@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debt Clock Local</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="screen-glow"></div>
+    <main class="clock-wrap">
+      <header class="topbar">
+        <div>
+          <p class="kicker">LOCAL REAL-TIME DASHBOARD</p>
+          <h1>U.S. Debt Clock Style Monitor</h1>
+        </div>
+        <div class="topbar-right">
+          <p id="nowTime" class="time"></p>
+          <p id="lastUpdate" class="muted"></p>
+        </div>
+      </header>
+
+      <section class="headline-grid">
+        <article class="headline-card danger">
+          <p class="label">U.S. NATIONAL DEBT</p>
+          <p id="debtMain" class="big-number">-</p>
+          <p id="debtPerSecond" class="delta">-</p>
+        </article>
+        <article class="headline-card success">
+          <p class="label">U.S. GDP (EST.)</p>
+          <p id="gdpMain" class="big-number">-</p>
+          <p id="gdpPerSecond" class="delta">-</p>
+        </article>
+        <article class="headline-card warning">
+          <p class="label">DEBT / GDP</p>
+          <p id="debtToGdp" class="big-number">-</p>
+          <p class="delta">継続監視中</p>
+        </article>
+      </section>
+
+      <section class="board" id="board"></section>
+
+      <footer class="footnote">
+        <p>
+          このページは <a href="https://www.usdebtclock.org" target="_blank" rel="noreferrer">usdebtclock.org</a> のUIコンセプトを参考に、
+          ローカル用に再実装したものです。
+        </p>
+      </footer>
+    </main>
+
+    <template id="metricTemplate">
+      <article class="metric-card">
+        <p class="category"></p>
+        <p class="name"></p>
+        <p class="value">-</p>
+        <p class="sub"></p>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
